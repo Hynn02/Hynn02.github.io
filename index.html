@@ -228,7 +228,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/05/css-center/">css局中效果的实现</a>
+      <a class="article-title" href="/2020/03/05/css-center/">css居中效果的实现</a>
     </h1>
   
 
@@ -241,7 +241,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>每次写局中都要查，干脆记录一下，消化一下。</p>
+        <p>每次写居中都要查，干脆记录一下，消化一下。</p>
 
       
 
@@ -322,7 +322,27 @@
 <p><a href="https://blog.csdn.net/qq_1290259791/article/details/81174383" target="_blank" rel="noopener">Flask-Vue前后端分离</a></p>
 <p><a href="https://blog.csdn.net/weixin_42042680/article/details/82781556?depth_1-utm_source=distribute.pc_relevant.none-task&utm_source=distribute.pc_relevant.none-task" target="_blank" rel="noopener">Flask+Vue快速打造个人网站(一)</a></p>
 <p><a href="https://www.jianshu.com/p/2f72ec1b87cb" target="_blank" rel="noopener">Vue与flask实现前后端分离</a></p>
-<h3 id="用get和post通信"><a href="#用get和post通信" class="headerlink" title="用get和post通信"></a>用get和post通信</h3><h3 id="用socketio通信"><a href="#用socketio通信" class="headerlink" title="用socketio通信"></a>用socketio通信</h3><h3 id="关于跨域"><a href="#关于跨域" class="headerlink" title="关于跨域"></a>关于跨域</h3>
+<h3 id="建一个flask服务"><a href="#建一个flask服务" class="headerlink" title="建一个flask服务"></a>建一个flask服务</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#flask2vue.py</span></span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> jsonify</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">hello_world</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">'Hello World!'</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route('/getMsg', methods=['GET', 'POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getMsg</span><span class="params">()</span>:</span></span><br><span class="line">    response = &#123;</span><br><span class="line">        <span class="string">'msg'</span>: <span class="string">'Hello, Python !'</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> jsonify(response)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 启动运行</span></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)   <span class="comment"># 这样子会直接运行在本地服务器，也即是 localhost:5000</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="用get和post通信"><a href="#用get和post通信" class="headerlink" title="用get和post通信"></a>用get和post通信</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#flask2vue.py</span></span><br><span class="line"><span class="meta">@app.route('/upload',methods=['POST'])</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">upload</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">'POST'</span>:</span><br><span class="line">        f = request.files[<span class="string">'file'</span>]</span><br><span class="line">        base_path = os.path.abspath(os.path.dirname(__file__))</span><br><span class="line">        upload_path = os.path.join(base_path,<span class="string">'static/uploads'</span>,secure_filename(f.filename))</span><br><span class="line">        f.save(upload_path)</span><br><span class="line">        response = &#123;</span><br><span class="line">            <span class="string">'msg'</span>: <span class="string">"文件上传成功!!"</span></span><br><span class="line">        &#125; </span><br><span class="line">        <span class="keyword">return</span> jsonify(response)</span><br></pre></td></tr></table></figure>
+
+<p>get同理。</p>
+<h3 id="用socketio通信"><a href="#用socketio通信" class="headerlink" title="用socketio通信"></a>用socketio通信</h3><p>本来是找websocket通信的，找的过程中发现socketio更好，就用起来socketio了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#flask2vue.py</span></span><br><span class="line"><span class="comment">#实现后端向前端每隔几秒钟发送一下数字</span></span><br><span class="line"><span class="meta">@socketio.on('connect')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_connect</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"Client connected"</span>)</span><br><span class="line">    <span class="keyword">global</span> thread</span><br><span class="line">    <span class="keyword">with</span> thread_lock:</span><br><span class="line">        <span class="keyword">if</span> thread <span class="keyword">is</span> <span class="literal">None</span>:</span><br><span class="line">            thread=socketio.start_background_task(target=background_thread)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">background_thread</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">        socketio.sleep(<span class="number">5</span>)</span><br><span class="line">        t=random.randint(<span class="number">1</span>,<span class="number">100</span>)</span><br><span class="line">        print(<span class="string">"t:"</span>+str(t))</span><br><span class="line">        socketio.emit(<span class="string">'server_response'</span>,&#123;<span class="string">"data"</span>:t&#125;)</span><br><span class="line"></span><br><span class="line"><span class="meta">@socketio.on('disconnect')</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test_disconnet</span><span class="params">()</span>:</span></span><br><span class="line">    print(<span class="string">"Client disconnected"</span>)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//App.vue</span></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<h3 id="关于跨域"><a href="#关于跨域" class="headerlink" title="关于跨域"></a>关于跨域</h3><p>我目前用了最简单的一种跨域解决方案：CORS跨域资源共享</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#flask2vue.py</span></span><br><span class="line"><span class="keyword">from</span> flask_cors <span class="keyword">import</span> CORS</span><br><span class="line">CORS(app, supports_credentials=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># cors = CORS(app, resources=&#123;r"/upload": &#123;"origins": "*"&#125;&#125;) #这一种写法应该是开放这一个方法的跨域</span></span><br></pre></td></tr></table></figure>
+
+<p>其它方法以后学习了再补充。</p>
+
       
 
       
