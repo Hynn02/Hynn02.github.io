@@ -148,6 +148,99 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-vue-lifetime" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/03/05/vue-lifetime/">vue学习</a>
+    </h1>
+  
+
+        
+        <a href="/2020/03/05/vue-lifetime/" class="archive-article-date">
+  	<time datetime="2020-03-05T10:16:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="参考的一些博客"><a href="#参考的一些博客" class="headerlink" title="参考的一些博客"></a>参考的一些博客</h3><p><a href="https://www.jianshu.com/p/410b6099be69" target="_blank" rel="noopener">谈谈vue生命周期-看了这篇你就懂了</a></p>
+<h3 id="看了博客后自己做的笔记"><a href="#看了博客后自己做的笔记" class="headerlink" title="看了博客后自己做的笔记"></a>看了博客后自己做的笔记</h3><h4 id="一、vue的生命周期"><a href="#一、vue的生命周期" class="headerlink" title="一、vue的生命周期"></a>一、vue的生命周期</h4><p>vue的每个组件是独立的，每个组件都有一个属于它的生命周期，从一个组件的创建、数据初始化、挂载、更新、销毁，这就是一个组件的生命周期。</p>
+<p>beforeCreate</p>
+<p>created</p>
+<p>beforeMount</p>
+<p>mounted</p>
+<p>(</p>
+<p>beforeUpdate</p>
+<p>updated</p>
+<p>)</p>
+<p>beforeDestroy</p>
+<p>destroyed</p>
+<h4 id="二、vue的内置方法、属性和vue生命周期的运行顺序"><a href="#二、vue的内置方法、属性和vue生命周期的运行顺序" class="headerlink" title="二、vue的内置方法、属性和vue生命周期的运行顺序"></a>二、vue的内置方法、属性和vue生命周期的运行顺序</h4><p>vue的内置属性方法：props、methods、data、computed、watch</p>
+<p>他们之间的生成顺序：props=&gt;methods=&gt;data=&gt;computed=&gt;watch</p>
+<h4 id="三、关于promise"><a href="#三、关于promise" class="headerlink" title="三、关于promise"></a>三、关于promise</h4><p>—————————————我是萌萌的分割线————————————</p>
+<p>把这些理顺了感觉舒服了很多</p>
+<p>写程序也最紧要开心😃</p>
+<p>理解了才开心😃</p>
+<p>日常提醒自己，别着急，别着急，踏踏实实地走，跑不了先别跑，厚积薄发😃</p>
+<p>目前的愿望是成为一名会玩data science的幸福快乐的前端：）</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/03/05/vue-lifetime/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-cnn" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -302,7 +395,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/05/vue-and-flask/">vue和flask的前后端通信</a>
+      <a class="article-title" href="/2020/03/05/vue-and-flask/">vue和flask的前后端分离开发</a>
     </h1>
   
 
@@ -342,6 +435,11 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#flask2vue.py</span></span><br><span class="line"><span class="keyword">from</span> flask_cors <span class="keyword">import</span> CORS</span><br><span class="line">CORS(app, supports_credentials=<span class="literal">True</span>)</span><br><span class="line"><span class="comment"># cors = CORS(app, resources=&#123;r"/upload": &#123;"origins": "*"&#125;&#125;) #这一种写法应该是开放这一个方法的跨域</span></span><br></pre></td></tr></table></figure>
 
 <p>其它方法以后学习了再补充。</p>
+<h3 id="关于加载后端的静态资源"><a href="#关于加载后端的静态资源" class="headerlink" title="关于加载后端的静态资源"></a>关于加载后端的静态资源</h3><p>除了放在项目的static文件夹里的资源可以被外部访问到以外，暂时还不知道怎么配置静态资源服务器让其它位置也被访问到。</p>
+<p>放回图片路径可以用url_for()</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url_for(<span class="string">'.static'</span>,_external=<span class="literal">True</span>,filename=<span class="string">'pic/test.png'</span>)</span><br></pre></td></tr></table></figure>
+
+<p><a href="https://www.cnblogs.com/liuxiaowei/p/9039622.html" target="_blank" rel="noopener">【Flask】Flask中关于url_for()</a></p>
 
       
 
